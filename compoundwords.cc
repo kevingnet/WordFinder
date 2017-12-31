@@ -73,23 +73,10 @@ bool CompoundWordCounter::IsCompound(const string w) const {
 // main()
 //////////////////////////////////////////////////////////////////////
 int main(int argc, char* argv[]) {
-  //ifstream ifwords(argv[1]);
-  //ifstream ifwords("/home/kg/w");
-  //if (!ifwords.is_open())
-  //	return 1;
-  //time operations
-  //const clock_t begin_time = clock();
 
   //declare counter class
   CompoundWordCounter cwc;
-  //string line;
-  //line.reserve(DEFAULT_LINE_SIZE);
-  //read words from file and add to counter class
-
-//	while (getline(ifwords, line))
-//		cwc.AddWord(line);
-//	ifwords.close();
-
+ 
   unsigned int numWords = 0;
   std::fstream wordStream(argv[1]);
   std::istream_iterator<std::string> itr_word(wordStream), itr_word_end;
@@ -99,8 +86,6 @@ int main(int argc, char* argv[]) {
 
   //calculate results and output stats
   cwc.CalcCount();
-  //cwc.CalcCount(DONOT_OVERLAP_WORDS);
-  //cout << "Time " << float( clock () - begin_time ) /  CLOCKS_PER_SEC << endl;
   cout << "Words " << cwc.WordCount() << " Compounds: " << cwc.CompoundCount()
       << endl;
 
